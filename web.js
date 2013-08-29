@@ -10,7 +10,7 @@ var async   = require('async')
 var app = express();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 80);
 
 // Render homepage (note trailing slash): example.com/
 app.get('/', function(request, response) {
@@ -19,6 +19,7 @@ app.get('/', function(request, response) {
 });
 
 // Render example.com/orders
+/*
 app.get('/orders', function(request, response) {
   global.db.Order.findAll().success(function(orders) {
     var orders_json = [];
@@ -68,7 +69,7 @@ app.get('/refresh_orders', function(request, response) {
   });
 
 });
-
+*/
 // sync the database and start the server
 db.sequelize.sync().complete(function(err) {
   if (err) {
@@ -81,6 +82,7 @@ db.sequelize.sync().complete(function(err) {
 });
 
 // add order to the database if it doesn't already exist
+/*
 var addOrder = function(order_obj, callback) {
   var order = order_obj.order; // order json from coinbase
   if (order.status != "completed") {
@@ -108,4 +110,4 @@ var addOrder = function(order_obj, callback) {
       }
     });
   }
-};
+};*/
